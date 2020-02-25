@@ -1,6 +1,16 @@
+#include "Node.hpp"
+
 class Stack
 {
     private:
+        Node* top;
 
-    public: 
+    public:
+        Stack();
+        void push(int payload);
+        int pop();
+        int peek();
+        void display();
+        void pushThenPop(Stack * s);
+        void display3Stacks(Stack * s1, Stack * s2, Stack * s3);
 };
