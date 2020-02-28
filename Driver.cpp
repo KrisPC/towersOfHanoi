@@ -1,25 +1,36 @@
-#include "Stack.hpp"
+#include "Tower.hpp"
 #include <iostream>
 #include <stdlib.h> 
 
 int main()
 {
-    Stack* stackOne = new Stack();
-    Stack* stackTwo = new Stack();
-    Stack* stackThree = new Stack();
+    Tower* t1 = new Tower(1);
+    Tower* t2 = new Tower(2);
+    Tower* t3 = new Tower(3);
+    t1->push(new Disk(6));
+    t1->push(new Disk(4));
+    t1->push(new Disk(2));
 
-    stackOne->push(3);
-    stackOne->push(2);
-    stackOne->push(1);
-
-    stackOne->display();
-
-    stackOne->pushThenPop(stackTwo);
-
+    t1->display();
+    t2->display();
+    t3->display();
+    int winCondition = t1->getCount() - 1;
     
-    stackOne->display3Stacks(stackOne, stackTwo, stackThree);
     
+while(t3->getCount() <= winCondition)
+{
+    std::cout <<"Enter the tower from which you would like to remove: "<< "\n";
+    int numRemove;
+    std::cin >> numRemove;
+    std::cout << "Enter which number tower you would like to place it on: " << "\n";
+    int numAdd;
+    std::cin >> numAdd;
 
-
+   t1->popThenPushLogic(numRemove, numAdd, t1, t2, t3);
+   t1->displayAllTowers(t1, t2, t3);
+    
+    
+}
+    std::cout << "You win!" << "\n";
     return 0;
 }
